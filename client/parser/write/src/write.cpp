@@ -29,7 +29,6 @@ void write::foundTag() {
     i++;
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}"; i++);
     i++;
-    //std::cout << this->_localSave.at(i) << std::endl;
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "}" && this->_tag < this->_country.size(); i++) {
         if (this->_localSave.at(i).at(0) == '\t' && this->_localSave.at(i).at(4) == '=') {
             std::string tag = this->_localSave.at(i).substr(1, 3);
@@ -137,14 +136,12 @@ void write::foundTag() {
 }
 
 int write::baseProvince(std::string province, int i) {
-    //_province actualProvince;
     std::string sub;
     std::vector<std::string> cuted;
     bool equal;
 
     sub = this->_localSave.at(i);
     cuted = cutInPart('=', sub);
-    //actualProvince.name = cuted.at(0);
     
     for (; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}";i++) {
         if ((size_t)2 < this->_localSave.at(i).size()) {
@@ -165,17 +162,11 @@ int write::baseProvince(std::string province, int i) {
             }
         }
     }
-    //this->_localProvince.push_back(actualProvince);
 
     return i;
 }
 
 int write::parseTag(std::string tag, int i) {
-    /*this->_actual = *new country;
-    this->_actual.tag = tag;
-    this->_initCountry = false;*/
-
-
     this->_nbEstate = 0;
     for (; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}";i++) {
         int equal = 0;
@@ -219,11 +210,7 @@ int write::parseTag(std::string tag, int i) {
             i = three(i);
         }
     }
-    /*this->_actual.government = this->_localGovernment;
-    this->_actual.stateViews = this->_localStateViews;
-    this->_actual.technology = this->_localTechnology;
-    if (this->_initCountry)
-        this->_country.push_back(this->_actual);*/
+
     return i;
 }
 
@@ -231,7 +218,7 @@ int write::estate(int i) {
     std::string sub;
     std::vector<std::string> cuted;
     std::vector<std::string> toAdd;
-    //_estate estate;
+
     i++;
     int pr = 0;
     for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
@@ -260,7 +247,6 @@ int write::estate(int i) {
             }
     }
     this->_nbEstate++;
-    //this->_actual.estates.push_back(estate);
 
     return i;
 }
@@ -500,27 +486,18 @@ std::string write::with(int i, int nb, char del) {
 int write::addLine(int i, std::vector<std::string> sub, int tab) {
     std::string del = "";
     std::string start = "";
-    //std::cout << "in addLine" << std::endl;
     int saveI = i;
     for (int y = 0; y != tab; y++)
         del += "\t";
     start = del;
     start += "{";
     del += "}";
-    // on retire tout ce qu'il y a dans l'intervale
-    //std::cout << del << std::endl;
-    //std::cout << "pre middle" << std::endl;
-    //for (int c = 0; c < sub.size(); c++)
-    //    std::cout << sub.at(c) << std::endl;
-    //std::cout << del << "|" << std::endl;
     for (; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != del; i++)
         if (this->_localSave.at(i + 1) != del) {
             for (int y = i; ((size_t)y + 1) < this->_localSave.size(); y++)
                 this->_localSave.at(y) == this->_localSave.at(y + 1);
             this->_localSave.erase(this->_localSave.begin() + this->_localSave.size() - 1);
         }
-    //std::cout << "middle" << std::endl;
-    // on remplis l'intervale
     if (this->_localSave.at(saveI) == start)
         saveI++;
     i = saveI;
@@ -539,19 +516,7 @@ int write::addLine(int i, std::vector<std::string> sub, int tab) {
         //std::cout << "in 3" << std::endl;
         this->_localSave.at(i) = sub.at(y);
         i++;
-        /*if (this->_localSave.at(i) != start)
-            for (int stop = this->_localSave.size(); i < stop; i++) {
-                if (i == o)
-                    this->_localSave.push_back(this->_localSave.at(stop));
-                else {
-                    this->_localSave.at(i) = this->_localSave.at(i - 1); 
-                }
-            }
-        i = y + o;
-        this->_localSave.at(i) = sub.at(y);
-        y++;*/
     }
-    //std::cout << "out addLine" << std::endl;
 
     return i;
 }

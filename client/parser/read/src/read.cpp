@@ -6,8 +6,7 @@ read::read(std::string path) {
     this->_info = new infoFile(path);
     this->_working = this->_info->isWorking();
     this->_localSave = this->_info->getSave();
-    //for (int i = 0; (size_t)i < this->_localSave.size(); i++)
-    //    std::cout << this->_localSave.at(i) << std::endl;
+
     foundTag();
 }
 
@@ -15,11 +14,9 @@ read::~read() {}
 
 void read::foundTag() {
     int i = 0;
-    //std::string SWE = "\tSWE={";
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "countries={"; i++)
         if (this->_localSave.at(i).size() > (size_t)5 && this->_localSave.at(i).at(0) == '-' && this->_localSave.at(i).size() > 2 && this->_localSave.at(i).size() <= 7) 
             i = baseProvince(this->_localSave.at(i), i);
-    //for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != SWE; i++);
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}"; i++);
     i++;
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}"; i++);

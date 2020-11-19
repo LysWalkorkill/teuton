@@ -1,8 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
 ** teuton
-** File description:
-** TODO: add description
 */
 
 #ifndef TEUTON_LINE_EDIT_HPP
