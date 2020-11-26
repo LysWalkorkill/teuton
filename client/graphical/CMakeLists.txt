@@ -26,7 +26,7 @@ add_library(graphical SHARED
     ${PROJECT_SOURCE_DIR}/client/graphical/widget/src/LineEdit.cpp
     ${PROJECT_SOURCE_DIR}/client/graphical/widget/src/QButton.cpp
     ${PROJECT_SOURCE_DIR}/client/graphical/widget/src/Widget.cpp
-    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/scene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/HomeScene.cpp
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS} Qt5::Widgets)

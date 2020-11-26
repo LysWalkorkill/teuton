@@ -17,5 +17,13 @@ include_directories(${PROJECT_SOURCE_DIR}/client/parser/write/include)
 add_library(read SHARED
     ${PROJECT_SOURCE_DIR}/client/parser/read/src/infoFile.cpp
     ${PROJECT_SOURCE_DIR}/client/parser/read/src/read.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/ActiveIdeaGroup.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Colors.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Country.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Estates.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Government.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/StateViews.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Technology.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/read/src/Province.cpp
 )
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS} Qt5::Widgets)

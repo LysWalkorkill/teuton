@@ -28,10 +28,10 @@ void read::foundTag() {
     for (;(size_t)i < this->_localSave.size() && this->_localSave.at(i) != "}"; i++) {
         if (this->_localSave.at(i).at(0) == '\t' && this->_localSave.at(i).at(4) == '=') {
             std::string tag = this->_localSave.at(i).substr(1, 3);
-            country _new;
-            _government _newG;
-            _stateViews _newS;
-            _technology _newT;
+            Country _new;
+            Government _newG;
+            StateViews _newS;
+            Technology _newT;
             this->_actual = _new;
             this->_localGovernment = _newG;
             this->_localStateViews = _newS;
@@ -44,76 +44,76 @@ void read::foundTag() {
     // for (int i = 0; i != 30; i++) {
     std::cout << "design" << std::endl;
     for (int i = 0; i != 4; i++) {
-        std::cout << "tag: " << this->_country.at(i).tag << std::endl;
-        std::cout << "primaryCulture: " << this->_country.at(i).primaryCulture << std::endl;
-        std::cout << "religion: " << this->_country.at(i).religion << std::endl;
+        std::cout << "tag: " << this->_country.at(i).getTag() << std::endl;
+        std::cout << "primaryCulture: " << this->_country.at(i).getPrimaryCulture() << std::endl;
+        std::cout << "religion: " << this->_country.at(i).getReligion() << std::endl;
         std::cout << std::endl;
         std::cout << "rival: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).rival.size(); o++) {
-            std::cout << this->_country.at(i).rival.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getRival().size(); o++) {
+            std::cout << this->_country.at(i).getRival().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << std::endl;
         std::cout << "ownedProvinces: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).ownedProvince.size(); o++) {
-            std::cout << this->_country.at(i).ownedProvince.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getOwnedProvince().size(); o++) {
+            std::cout << this->_country.at(i).getOwnedProvince().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << std::endl;
-        for (int o = 0; (size_t)o < this->_country.at(i).estates.size(); o++) {
-            std::cout << "types: " << this->_country.at(i).estates.at(o).type << std::endl;
-            std::cout << "loyalty: " << this->_country.at(i).estates.at(o).loyalty << std::endl;
-            std::cout << "territory: " << this->_country.at(i).estates.at(o).territory << std::endl;
+        for (int o = 0; (size_t)o < this->_country.at(i).getEstates().size(); o++) {
+            std::cout << "types: " << this->_country.at(i).getEstates().at(o).getType() << std::endl;
+            std::cout << "loyalty: " << this->_country.at(i).getEstates().at(o).getLoyalty() << std::endl;
+            std::cout << "territory: " << this->_country.at(i).getEstates().at(o).getTerritory() << std::endl;
             std::cout << "grantedPrivileges: ";
-            for (int y = 0; (size_t)y < this->_country.at(i).estates.at(o).grantedPrivileges.size(); y++) {
-                std::cout << this->_country.at(i).estates.at(o).grantedPrivileges.at(y) << " ";
+            for (int y = 0; (size_t)y < this->_country.at(i).getEstates().at(o).getGrantedPrivileges().size(); y++) {
+                std::cout << this->_country.at(i).getEstates().at(o).getGrantedPrivileges().at(y) << " ";
             }
             std::cout << std::endl;
             std::cout << std::endl;
         }
-        for (int o = 0; (size_t)o < this->_country.at(i).activeIdeaGroup.size(); o++) {
-            std::cout << this->_country.at(i).activeIdeaGroup.at(o).ideaName << std::endl;
-            std::cout << this->_country.at(i).activeIdeaGroup.at(o).ideaLevel << std::endl;
+        for (int o = 0; (size_t)o < this->_country.at(i).getActiveIdeaGroup().size(); o++) {
+            std::cout << this->_country.at(i).getActiveIdeaGroup().at(o).getIdeaName() << std::endl;
+            std::cout << this->_country.at(i).getActiveIdeaGroup().at(o).getIdeaLevel() << std::endl;
         }
         std::cout << std::endl;
-        std::cout << "governmentRank: " << this->_country.at(i).government.governmentRank << std::endl;
-        std::cout << "governmentName: " << this->_country.at(i).government.governmentName << std::endl;
-        std::cout << "government: " << this->_country.at(i).government.government << std::endl;
+        std::cout << "governmentRank: " << this->_country.at(i).getGovernment().getGovernmentRank() << std::endl;
+        std::cout << "governmentName: " << this->_country.at(i).getGovernment().getGovernmentName() << std::endl;
+        std::cout << "government: " << this->_country.at(i).getGovernment().getGovernment() << std::endl;
         std::cout << "reforms: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).government.reform.size(); o++) {
-            std::cout << this->_country.at(i).government.reform.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getGovernment().getReform().size(); o++) {
+            std::cout << this->_country.at(i).getGovernment().getReform().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << std::endl;
-        std::cout << "currentPowerProjection: " << this->_country.at(i).stateViews.currentPowerProjection << std::endl;
-        std::cout << "prestige: " << this->_country.at(i).stateViews.prestige << std::endl;
-        std::cout << "stability: " << this->_country.at(i).stateViews.stability << std::endl;
-        std::cout << "legitimacy: " << this->_country.at(i).stateViews.legitimacy << std::endl;
-        std::cout << "manpower: " << this->_country.at(i).stateViews.manpower << std::endl;
-        std::cout << "innovativeness: " << this->_country.at(i).stateViews.innovativeness << std::endl;
+        std::cout << "currentPowerProjection: " << this->_country.at(i).getStateViews().getCurrentPowerProjection() << std::endl;
+        std::cout << "prestige: " << this->_country.at(i).getStateViews().getPrestige() << std::endl;
+        std::cout << "stability: " << this->_country.at(i).getStateViews().getStability() << std::endl;
+        std::cout << "legitimacy: " << this->_country.at(i).getStateViews().getLegitimacy() << std::endl;
+        std::cout << "manpower: " << this->_country.at(i).getStateViews().getManpower() << std::endl;
+        std::cout << "innovativeness: " << this->_country.at(i).getStateViews().getInnovativeness() << std::endl;
         std::cout << "revolutionaryColors: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).colors.revolutionaryColors.size(); o++) {
-            std::cout << this->_country.at(i).colors.revolutionaryColors.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getColors().getRevolutionaryColors().size(); o++) {
+            std::cout << this->_country.at(i).getColors().getRevolutionaryColors().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << "mapColors: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).colors.mapColors.size(); o++) {
-            std::cout << this->_country.at(i).colors.mapColors.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getColors().getMapColors().size(); o++) {
+            std::cout << this->_country.at(i).getColors().getMapColors().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << "countryColors: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).colors.countryColors.size(); o++) {
-            std::cout << this->_country.at(i).colors.countryColors.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getColors().getCountryColors().size(); o++) {
+            std::cout << this->_country.at(i).getColors().getCountryColors().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << std::endl;
-        std::cout << "technologyGroup: " << this->_country.at(i).technology.technologyGroup << std::endl;
-        std::cout << "admTech: " << this->_country.at(i).technology.admTech << std::endl;
-        std::cout << "dipTech: " << this->_country.at(i).technology.dipTech << std::endl;
-        std::cout << "milTech: " << this->_country.at(i).technology.milTech << std::endl;
+        std::cout << "technologyGroup: " << this->_country.at(i).getTechnology().getTechnologyGroup() << std::endl;
+        std::cout << "admTech: " << this->_country.at(i).getTechnology().getAdmTech() << std::endl;
+        std::cout << "dipTech: " << this->_country.at(i).getTechnology().getDipTech() << std::endl;
+        std::cout << "milTech: " << this->_country.at(i).getTechnology().getMilTech() << std::endl;
         std::cout << "powers: ";
-        for (int o = 0; (size_t)o < this->_country.at(i).powers.size(); o++) {
-            std::cout << this->_country.at(i).powers.at(o) << " ";
+        for (int o = 0; (size_t)o < this->_country.at(i).getPowers().size(); o++) {
+            std::cout << this->_country.at(i).getPowers().at(o) << " ";
         }
         std::cout << std::endl;
         std::cout << "-------------------------------------" << std::endl;
@@ -130,14 +130,14 @@ void read::foundTag() {
 }
 
 int read::baseProvince(std::string province, int i) {
-    _province actualProvince;
+    Province actualProvince;
     std::string sub;
     std::vector<std::string> cuted;
     bool equal;
 
     sub = this->_localSave.at(i);
     cuted = cutInPart('=', sub);
-    actualProvince.name = cuted.at(0);
+    actualProvince.setName(cuted.at(0));
     
     for (; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}";i++) {
         if ((size_t)2 < this->_localSave.at(i).size()) {
@@ -150,11 +150,11 @@ int read::baseProvince(std::string province, int i) {
             if (equal) {
                 cuted = cutInPart('=', sub);
                     if (cuted.at(0) == "base_tax")
-                        actualProvince.baseTax = std::atoi(cuted.at(1).c_str());
+                        actualProvince.setBaseTax(std::atoi(cuted.at(1).c_str()));
                     else if (cuted.at(0) == "base_production")
-                        actualProvince.baseProduction = std::atoi(cuted.at(1).c_str());
+                        actualProvince.setBaseProduction(std::atoi(cuted.at(1).c_str()));
                     else if (cuted.at(0) == "base_manpower")
-                        actualProvince.baseManpower = std::atoi(cuted.at(1).c_str());
+                        actualProvince.setBaseManpower(std::atoi(cuted.at(1).c_str()));
             }
         }
     }
@@ -164,8 +164,8 @@ int read::baseProvince(std::string province, int i) {
 }
 
 int read::parseTag(std::string tag, int i) {
-    this->_actual = *new country;
-    this->_actual.tag = tag;
+    this->_actual = *new Country;
+    this->_actual.setTag(tag);
     this->_initCountry = false;
     for (; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t}";i++) {
         int equal = 0;
@@ -201,9 +201,9 @@ int read::parseTag(std::string tag, int i) {
             i = three(i);
         }
     }
-    this->_actual.government = this->_localGovernment;
-    this->_actual.stateViews = this->_localStateViews;
-    this->_actual.technology = this->_localTechnology;
+    this->_actual.setGovernment(this->_localGovernment);
+    this->_actual.setStateViews(this->_localStateViews);
+    this->_actual.setTechnology(this->_localTechnology);
     if (this->_initCountry)
         this->_country.push_back(this->_actual);
     return i;
@@ -212,18 +212,18 @@ int read::parseTag(std::string tag, int i) {
 int read::estate(int i) {
     std::string sub;
     std::vector<std::string> cuted;
-    _estate estate;
+    Estates estate;
     i++;
     for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
         sub = this->_localSave.at(i);
         sub = sub.substr(3, sub.size());
         cuted = cutInPart('=', sub);
         if (cuted.at(0) == "type")
-            estate.type = cuted.at(1);
+            estate.setType(cuted.at(1));
         if (cuted.at(0) == "loyalty")
-            estate.loyalty = std::stof(cuted.at(1));
+            estate.setLoyalty(std::stof(cuted.at(1)));
         if (cuted.at(0) == "territory")
-            estate.territory = std::stof(cuted.at(1));
+            estate.setTerritory(std::stof(cuted.at(1)));
         if (cuted.at(0) == "granted_privileges")
             for(;this->_localSave.at(i) != "\t\t\t}";i++) {
                 if (this->_localSave.at(i) == "\t\t\t\t{")
@@ -231,11 +231,11 @@ int read::estate(int i) {
                 else if (this->_localSave.at(i).size() > 3){
                     sub = sub.substr(4, sub.size());
                     cuted = cutInPart(' ', sub);
-                    estate.grantedPrivileges.push_back(cuted.at(0));
+                    estate.addGrantedPrivileges(cuted.at(0));
                 }
             }
     }
-    this->_actual.estates.push_back(estate);
+    this->_actual.addEsates(estate);
 
     return i;
 }
@@ -245,14 +245,14 @@ int read::idea(int i) {
     std::vector<std::string> cuted;
     i++;
     for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
-        _idea local;
+        ActiveIdeaGroup local;
         sub = this->_localSave.at(i);
         sub = sub.substr(3, sub.size());
         if (sub != "") {
             cuted = cutInPart('=', sub);
-            local.ideaLevel = std::atoi(cuted.at(1).c_str());
-            local.ideaName = cuted.at(0);
-            this->_actual.activeIdeaGroup.push_back(local);
+            local.setIdeaLevel(std::atoi(cuted.at(1).c_str()));
+            local.setIdeaName(cuted.at(0));
+            this->_actual.addActiveIdeaGroup(local);
         }
     }
 
@@ -264,9 +264,9 @@ int read::government(int i, std::string sub) {
     cuted = cutInPart('=', this->_localSave.at(i));
     bool out = false;
     if (cuted.at(0) == "government_rank")
-        this->_localGovernment.governmentRank = std::atoi(cuted.at(1).c_str());
+        this->_localGovernment.setGovernmentRank(std::atoi(cuted.at(1).c_str()));
     if (cuted.at(0) == "government_name")
-        this->_localGovernment.governmentName = cuted.at(1);
+        this->_localGovernment.setGovernmentName(cuted.at(1));
     if (cuted.at(0) == "government") {
         i++;
         for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
@@ -274,7 +274,7 @@ int read::government(int i, std::string sub) {
             sub = sub.substr(3, sub.size());
             cuted = cutInPart('=', sub);
             if (cuted.at(0) == "government")
-                this->_localGovernment.government = cuted.at(1);
+                this->_localGovernment.setGovernment(cuted.at(1));
             if (cuted.at(0) == "reform_stack") {
                 i++; 
                 for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t\t}" && !out; i++)
@@ -284,7 +284,7 @@ int read::government(int i, std::string sub) {
                         if (sub != "reforms={") {
                             out = true;
                             sub = sub.substr(1, sub.size());
-                            this->_localGovernment.reform.push_back(sub);
+                            this->_localGovernment.addReform(sub);
                         }
                     }
             }
@@ -298,18 +298,18 @@ int read::stateViews(int i, std::string sub) {
     std::vector<std::string> cuted;
     cuted = cutInPart('=', this->_localSave.at(i));
     if (cuted.at(0) == "current_power_projection") {
-        this->_localStateViews.currentPowerProjection = std::stof(cuted.at(1));
+        this->_localStateViews.setCurrentPowerProjection(std::stof(cuted.at(1)));
     }
     if (cuted.at(0) == "prestige")
-        this->_localStateViews.prestige = std::stof(cuted.at(1));
+        this->_localStateViews.setPrestige(std::stof(cuted.at(1)));
     if (cuted.at(0) == "stability")
-        this->_localStateViews.stability = std::stof(cuted.at(1));
+        this->_localStateViews.setStability(std::stof(cuted.at(1)));
     if (cuted.at(0) == "devotion" || cuted.at(0) == "meritocracy" || cuted.at(0) == "legitimacy")
-        this->_localStateViews.legitimacy = std::stof(cuted.at(1));
+        this->_localStateViews.setLegitimacy(std::stof(cuted.at(1)));
     if (cuted.at(0) == "manpower")
-        this->_localStateViews.manpower = std::stof(cuted.at(1));
+        this->_localStateViews.setManpower(std::stof(cuted.at(1)));
     if (cuted.at(0) == "innovativeness")
-        this->_localStateViews.innovativeness = std::stof(cuted.at(1));
+        this->_localStateViews.setInnovativeness(std::stof(cuted.at(1)));
 
     return i;
 }
@@ -317,7 +317,7 @@ int read::stateViews(int i, std::string sub) {
 int read::colors(int i) {
     std::string sub;
     std::vector<std::string> cuted;
-    _colors colors;
+    Colors colors;
     for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
         sub = this->_localSave.at(i);
         sub = sub.substr(3, sub.size());
@@ -330,7 +330,7 @@ int read::colors(int i) {
             cuted = cutInPart(' ', sub);
             for (int o = 0; (size_t)o < cuted.size(); o++)
                 color.push_back(std::stof(cuted.at(0).c_str()));
-            colors.revolutionaryColors = color;
+            colors.setRevolutionaryColors(color);
         }
         if (cuted.at(0) == "map_color") {
             i++;
@@ -339,7 +339,7 @@ int read::colors(int i) {
             cuted = cutInPart(' ', sub);
             for (int o = 0; (size_t)o < cuted.size(); o++)
                 color.push_back(std::stof(cuted.at(0).c_str()));
-            colors.mapColors = color;
+            colors.setMapColors(color);
         }
         if (cuted.at(0) == "country_color") {
             i++;
@@ -348,10 +348,10 @@ int read::colors(int i) {
             cuted = cutInPart(' ', sub);
             for (int o = 0; (size_t)o < cuted.size(); o++)
                 color.push_back(std::stof(cuted.at(0).c_str()));
-            colors.countryColors = color;
+            colors.setCountryColors(color);
         }
     }
-    this->_actual.colors = colors;
+    this->_actual.setColor(colors);
 
     return i;
 }
@@ -363,7 +363,7 @@ int read::technology(int i) {
     sub = sub.substr(2, sub.size());
     cuted = cutInPart('=', sub);
     if (cuted.at(0) == "technology_group") {
-        this->_localTechnology.technologyGroup = cuted.at(1);
+        this->_localTechnology.setTechnologyGroup(cuted.at(1));
         return i;
     }
     for(; (size_t)i < this->_localSave.size() && this->_localSave.at(i) != "\t\t}"; i++) {
@@ -372,11 +372,11 @@ int read::technology(int i) {
         sub = sub.substr(3, sub.size());
         cuted = cutInPart('=', sub);
         if (cuted.at(0) == "adm_tech")
-            this->_localTechnology.admTech = std::atoi(cuted.at(1).c_str());  
+            this->_localTechnology.setAdmTech(std::atoi(cuted.at(1).c_str()));
         if (cuted.at(0) == "dip_tech")
-            this->_localTechnology.dipTech = std::atoi(cuted.at(1).c_str());  
+            this->_localTechnology.setDipTech(std::atoi(cuted.at(1).c_str()));  
         if (cuted.at(0) == "mil_tech")
-            this->_localTechnology.milTech = std::atoi(cuted.at(1).c_str());  
+            this->_localTechnology.setMilTech(std::atoi(cuted.at(1).c_str()));  
     }
 
     return i;
@@ -395,7 +395,7 @@ int read::three(int i) {
         sub = sub.substr(3, sub.size());
         cuted = cutInPart(' ', sub);
         for (int o = 0; (size_t)o < cuted.size(); o++)
-            this->_actual.ownedProvince.push_back(std::stof(cuted.at(o).c_str()));
+            this->_actual.addOwnedProvince(std::stof(cuted.at(o).c_str()));
     }
     if (cuted.at(0) == "powers" ) {
         i++;
@@ -403,7 +403,7 @@ int read::three(int i) {
         sub = sub.substr(3, sub.size());
         cuted = cutInPart(' ', sub);
         for (int o = 0; (size_t)o < cuted.size(); o++)
-            this->_actual.powers.push_back(std::stof(cuted.at(0).c_str()));
+            this->_actual.addPowers(std::stof(cuted.at(0).c_str()));
     }
 
     return i;
@@ -416,14 +416,14 @@ int read::misc(int i, std::string sub) {
         sub = this->_localSave.at(i);
         sub = sub.substr(2, sub.size());
         cuted = cutInPart('=', sub);
-        this->_actual.primaryCulture = cuted.at(1);
+        this->_actual.setPrimaryCulture(cuted.at(1));
     }
     if (sub == "religion") {
         std::vector<std::string> cuted;
         sub = this->_localSave.at(i);
         sub = sub.substr(2, sub.size());
         cuted = cutInPart('=', sub);
-        this->_actual.religion = cuted.at(1);
+        this->_actual.setReligion(cuted.at(1));
     }
     if (sub == "rival") {
         i++;
@@ -431,7 +431,7 @@ int read::misc(int i, std::string sub) {
         sub = this->_localSave.at(i);
         sub = sub.substr(2, sub.size());
         cuted = cutInPart('=', sub);
-        this->_actual.rival.push_back(cuted.at(1));
+        this->_actual.addRival(cuted.at(1));
     }
 
     return i;
@@ -457,9 +457,9 @@ std::vector<std::string> read::cutInPart(char delimiter, std::string sub) {
 std::vector<std::string> read::getSave() {
     return this->_localSave;
 }
-std::vector<_province> read::getProvince() {
+std::vector<Province> read::getProvince() {
     return this->_localProvince;
 }
-std::vector<country> read::getCountry() {
+std::vector<Country> read::getCountry() {
     return this->_country;
 }

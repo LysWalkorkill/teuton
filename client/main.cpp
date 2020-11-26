@@ -5,12 +5,6 @@
 ** TODO: add description
 */
 
-/*#include "graphical/widget/include/QButton.hpp"
-#include "graphical/widget/include/DialogBox.hpp"
-#include "graphical/widget/include/LineEdit.hpp"
-#include "graphical/widget/include/Widget.hpp"
-#include "graphical/widget/include/Label.hpp"
-#include "graphical/widget/include/IWidgets.hpp"
 #include <QPushButton>
 #include <QApplication>
 #include <QObject>
@@ -18,20 +12,24 @@
 #include <QWidget>
 #include <QPaintDevice>
 #include <QtOpenGL/QGLWidget>
-#include <QtOpenGL/QGLPixelBuffer>*/
+#include <QtOpenGL/QGLPixelBuffer>
 #include <iostream>
-#include "parser/read/include/read.hpp"
-#include "parser/write/include/write.hpp"
+//#include "parser/read/include/read.hpp"
+//#include "parser/write/include/write.hpp"
+#include "graphical/scenes/include/HomeScene.hpp"
 
-//using namespace teuton::graphical;
-
+using namespace teuton::graphical;
 using namespace teuton::parser;
 
 int main (int argc, char **argv)
 {
-    read rd(argv[1]);
+    QApplication _app(argc, argv);
+    HomeScene home;
+    return _app.exec();
+    
+    //read rd(argv[1]);
     //write wr(argv[1], rd.getSave(), rd.getCountry(), rd.getProvince());
-    return (0);
+    //return (0);
 }
 
 
@@ -89,4 +87,35 @@ QApplication _app(argc, argv);
     myLabel.setPixmap(QPixmap::fromImage(image1));
 
     return _app.exec();
+*/
+
+/*
+
+#include <QPushButton>
+#include <QApplication>
+#include <QObject>
+#include <QPainter>
+#include <QWidget>
+#include <QPaintDevice>
+#include <QtOpenGL/QGLWidget>
+#include <QtOpenGL/QGLPixelBuffer>
+#include <iostream>
+//#include "parser/read/include/read.hpp"
+//#include "parser/write/include/write.hpp"
+#include "graphical/scenes/include/HomeScene.hpp"
+
+using namespace teuton::graphical;
+using namespace teuton::parser;
+
+int main (int argc, char **argv)
+{
+    QApplication _app(argc, argv);
+    HomeScene home;
+    return _app.exec();
+    
+    //read rd(argv[1]);
+    //write wr(argv[1], rd.getSave(), rd.getCountry(), rd.getProvince());
+    //return (0);
+}
+
 */

@@ -5,6 +5,13 @@
 #include <vector>
 #include <iostream>
 #include "manipulate.hpp"
+#include "Technology.hpp"
+#include "StateViews.hpp"
+#include "Government.hpp"
+#include "Estates.hpp"
+#include "Country.hpp"
+#include "Colors.hpp"
+#include "ActiveIdeaGroup.hpp"
 
 namespace teuton::parser {
     class write {

@@ -7,6 +7,8 @@
 #include <string>  
 #include "manipulate.hpp"
 #include "infoFile.hpp"
+#include "Country.hpp"
+#include "Province.hpp"
 
 namespace teuton::parser {
     class read {
@@ -26,20 +28,26 @@ namespace teuton::parser {
             std::vector<std::string> cutInPart(char, std::string);
             int baseProvince(std::string, int);
             std::vector<std::string> getSave();
-            std::vector<_province> getProvince();
-            std::vector<country> getCountry();
+            std::vector<Province> getProvince();
+            std::vector<Country> getCountry();
 
         private :
-            country _actual;
-            std::vector<country> _country;
+            bool _initCountry;
+            bool _working;
             infoFile *_info;
             std::vector<std::string> _localSave;
+            Country _actual;
+            std::vector<Country> _country;
+            std::vector<Province> _localProvince;
+            Government _localGovernment;
+            StateViews _localStateViews;
+            Technology _localTechnology;
+            /*country _actual;
+            std::vector<country> _country;
             std::vector<_province> _localProvince;
-            bool _working;
             _government _localGovernment;
             _stateViews _localStateViews;
-            _technology _localTechnology;
-            bool _initCountry;
+            _technology _localTechnology;*/
     };
 }
 
