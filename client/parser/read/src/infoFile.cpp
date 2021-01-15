@@ -11,7 +11,7 @@ infoFile::~infoFile() {}
 bool infoFile::isWorking() {
     this->file.open(this->path);
     if (!this->file.is_open()) {
-        std::cout << "Unable to open file " << this->path;
+        std::cout << "Unable to open file " << this->path << std::endl;
         return false;
     }
     std::string line;

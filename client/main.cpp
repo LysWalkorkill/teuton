@@ -13,10 +13,10 @@
 #include <QPaintDevice>
 #include <QtOpenGL/QGLWidget>
 #include <QtOpenGL/QGLPixelBuffer>
-#include <iostream>
-//#include "parser/read/include/read.hpp"
+#include "parser/read/include/read.hpp"
+#include "parser/write/include/Write.hpp"
+#include "graphical/scenes/include/Scene.hpp"
 //#include "parser/write/include/write.hpp"
-#include "graphical/scenes/include/HomeScene.hpp"
 
 using namespace teuton::graphical;
 using namespace teuton::parser;
@@ -24,12 +24,9 @@ using namespace teuton::parser;
 int main (int argc, char **argv)
 {
     QApplication _app(argc, argv);
-    HomeScene home;
+    read rd(argv[1]);
+    Scene scene(rd.getCountry(), rd.getProvince(), argv[1], rd.getSave());
     return _app.exec();
-    
-    //read rd(argv[1]);
-    //write wr(argv[1], rd.getSave(), rd.getCountry(), rd.getProvince());
-    //return (0);
 }
 
 

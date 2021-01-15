@@ -1,4 +1,5 @@
 #include "../include/Government.hpp"
+#include <iostream>
 
 using namespace teuton::parser;
 
@@ -29,4 +30,8 @@ std::string Government::getGovernment() {
 }
 std::vector<std::string> Government::getReform() {
     return this->reform;
+}
+
+void Government::changeReform(int i, std::string newR) {
+    reform.at(i) = newR;
 }

@@ -1,4 +1,5 @@
 #include "../include/Country.hpp"
+#include <iostream>
 
 using namespace teuton::parser;
 
@@ -9,7 +10,7 @@ void Country::setTag(std::string tag) {
     this->tag = tag;
 }
 void Country::setPrimaryCulture(std::string primaryCultur) {
-    this->primaryCulture = primaryCulture;
+    this->primaryCulture = primaryCultur;
 }
 void Country::setReligion(std::string religion) {
     this->religion = religion;
@@ -80,4 +81,16 @@ void Country::setTechnology(Technology technology) {
 }
 void Country::setGovernment(Government government) {
     this->_government = government;
+}
+
+void Country::setActiveIdeaGroup(std::vector<ActiveIdeaGroup> idea) {
+    this->_activeIdeaGroup = idea;
+}
+
+void Country::setEstates(std::vector<Estates> newE) {
+    this->_estates = newE;
+}
+
+void Country::setRival(std::vector<std::string> rival) {
+    this->rival = rival;
 }

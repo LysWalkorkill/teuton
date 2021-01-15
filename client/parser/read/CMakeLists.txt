@@ -15,6 +15,7 @@ include_directories(${PROJECT_SOURCE_DIR}/client/parser/read/include)
 include_directories(${PROJECT_SOURCE_DIR}/client/parser/write/include)
 
 add_library(read SHARED
+    ${PROJECT_SOURCE_DIR}/client/parser/write/src/Write.cpp
     ${PROJECT_SOURCE_DIR}/client/parser/read/src/infoFile.cpp
     ${PROJECT_SOURCE_DIR}/client/parser/read/src/read.cpp
     ${PROJECT_SOURCE_DIR}/client/parser/read/src/ActiveIdeaGroup.cpp

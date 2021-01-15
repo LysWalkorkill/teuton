@@ -39,11 +39,14 @@ namespace teuton::parser {
 
             std::vector<Estates> getEstates();
             std::vector<ActiveIdeaGroup> getActiveIdeaGroup();
+            void setActiveIdeaGroup(std::vector<ActiveIdeaGroup>);
             std::vector<int> getOwnedProvince();
             Government getGovernment();
             StateViews getStateViews();
             Colors getColors();
             Technology getTechnology();
+            void setEstates(std::vector<Estates>);
+            void setRival(std::vector<std::string>);
 
         private:
             std::string tag;

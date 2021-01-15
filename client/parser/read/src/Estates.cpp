@@ -17,6 +17,9 @@ void Estates::setTerritory(float territory) {
 void Estates::addGrantedPrivileges(std::string grantedPrivileges) {
     this->grantedPrivileges.push_back(grantedPrivileges);
 }
+void Estates::changePrivileges(std::vector<std::string> est) {
+    this->grantedPrivileges = est;
+}
 
 std::string Estates::getType() {
     return this->type;

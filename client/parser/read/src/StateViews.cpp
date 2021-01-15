@@ -24,6 +24,10 @@ void StateViews::setInnovativeness(float innovativeness) {
     this->innovativeness = innovativeness;
 }
 
+void StateViews::setRefromProgress(float refromProgress) {
+    this->refromProgress = refromProgress;
+}
+
 float StateViews::getCurrentPowerProjection() {
     return this->currentPowerProjection;
 }
@@ -41,4 +45,8 @@ float StateViews::getManpower() {
 }
 float StateViews::getInnovativeness() {
     return this->innovativeness;
+}
+
+float StateViews::getRefromProgress() {
+    return this->refromProgress;
 }

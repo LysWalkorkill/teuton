@@ -8,14 +8,14 @@ Technology::~Technology() {}
 void Technology::setTechnologyGroup(std::string technologyGroup) {
     this->technologyGroup = technologyGroup;
 }
-void Technology::setAdmTech(int admTech) {
-    this->admTech = admTech;
+void Technology::setAdmTech(int adm) {
+    this->admTech = adm;
 }
-void Technology::setDipTech(int dipTech) {
-    this->dipTech = dipTech;
+void Technology::setDipTech(int dip) {
+    this->dipTech = dip;
 }
-void Technology::setMilTech(int milTech) {
-    this->milTech = milTech;
+void Technology::setMilTech(int mil) {
+    this->milTech = mil;
 }
 
 std::string Technology::getTechnologyGroup() {

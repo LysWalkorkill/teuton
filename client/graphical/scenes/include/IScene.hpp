@@ -18,6 +18,7 @@ namespace teuton::graphical
 
         public:
             virtual std::vector<QWidget*> getWidgets() = 0;
+            virtual void setVisible(bool) = 0;
 
     };
 }

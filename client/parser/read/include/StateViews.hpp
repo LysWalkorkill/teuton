@@ -16,6 +16,7 @@ namespace teuton::parser {
             void setLegitimacy(float);
             void setManpower(float);
             void setInnovativeness(float);
+            void setRefromProgress(float);
 
             float getCurrentPowerProjection();
             float getPrestige();
@@ -23,6 +24,7 @@ namespace teuton::parser {
             float getLegitimacy();
             float getManpower();
             float getInnovativeness();
+            float getRefromProgress();
 
         private:
             float currentPowerProjection;
@@ -31,6 +33,7 @@ namespace teuton::parser {
             float legitimacy;
             float manpower;
             float innovativeness;
+            float refromProgress;
     };
 }
 

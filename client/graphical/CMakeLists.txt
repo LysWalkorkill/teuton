@@ -27,6 +27,17 @@ add_library(graphical SHARED
     ${PROJECT_SOURCE_DIR}/client/graphical/widget/src/QButton.cpp
     ${PROJECT_SOURCE_DIR}/client/graphical/widget/src/Widget.cpp
     ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/HomeScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/CountryScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/Scene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/ColorsScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/CultureReligionScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/GovernementScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/OrderScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/ProvincesScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/StateViewsScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/TechIdeaScene.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/OTech.cpp
+    ${PROJECT_SOURCE_DIR}/client/graphical/scenes/src/Idea.cpp
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS} Qt5::Widgets)

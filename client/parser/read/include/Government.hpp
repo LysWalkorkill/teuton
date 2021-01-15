@@ -14,6 +14,7 @@ namespace teuton::parser {
             void setGovernmentName(std::string);
             void setGovernment(std::string);
             void addReform(std::string);
+            void changeReform(int, std::string);
 
             int getGovernmentRank();
             std::string getGovernmentName();

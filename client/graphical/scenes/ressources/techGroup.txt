@@ -1,0 +1,15 @@
+western
+high American
+eastern
+anatolian
+muslim
+indian
+east African
+chinese
+west African
+central African
+nomadic
+mesoamerican
+andean
+north American
+south American

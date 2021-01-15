@@ -114,6 +114,8 @@ namespace teuton::graphical
             */
             int getID() const override;
 
+            std::string getText();
+
         private:
             QPushButton *_button;
             int _x;

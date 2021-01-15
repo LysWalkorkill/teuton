@@ -14,6 +14,7 @@ namespace teuton::parser {
             void setLoyalty(float);
             void setTerritory(float);
             void addGrantedPrivileges(std::string);
+            void changePrivileges(std::vector<std::string>);
 
             std::string getType();
             float getLoyalty();

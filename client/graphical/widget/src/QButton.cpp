@@ -109,3 +109,7 @@ int QButton::getID() const
 {
     return (this->_id);
 }
+
+std::string QButton::getText() {
+    return this->_button->text().toUtf8().constData();;
+}

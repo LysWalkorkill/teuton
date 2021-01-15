@@ -21,7 +21,7 @@ include_directories(${PROJECT_SOURCE_DIR}/client/parser/read/include)
 include_directories(${PROJECT_SOURCE_DIR}/client/parser/write/include)
 
 add_library(write SHARED
-    ${PROJECT_SOURCE_DIR}/client/parser/write/src/write.cpp
+    ${PROJECT_SOURCE_DIR}/client/parser/write/src/Write.cpp
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS} Qt5::Widgets)
